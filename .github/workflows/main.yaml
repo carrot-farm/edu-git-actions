@@ -16,9 +16,6 @@ jobs:
         with: 
           path: node_modules
           key: ${{ runner.OS }}-build-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runners.OS }}-build- 
-            ${{ runnser.OS }}-
         
       - name: 의존성 파일 설치
         run: npm install
