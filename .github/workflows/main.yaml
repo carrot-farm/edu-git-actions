@@ -14,14 +14,14 @@ jobs:
       - name: node_modules 디렉토리캐싱
         uses: actions/cache@v1
         with: 
-          path: node_modules
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-build-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-build-
         
       - name: 의존성 파일 설치
-        run: yarn
+        run: yarn install
 
       - name: React 빌드
         run: yarn build
-        
+
