@@ -15,7 +15,9 @@ jobs:
         uses: actions/cache@v1
         with: 
           path: node_modules
-          key: ${{ runner.OS }}-build-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-build-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-
         
       - name: 의존성 파일 설치
         run: npm install
