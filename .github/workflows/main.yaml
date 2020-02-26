@@ -22,7 +22,6 @@ jobs:
       - name: 의존성 파일 설치
         run: yarn
 
-
       - name: React 빌드
         run: yarn build
 
