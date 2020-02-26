@@ -14,10 +14,10 @@ jobs:
       - name: node_modules 디렉토리캐싱
         uses: actions/cache@v1
         with: 
-          path: node_modules
-          key: ${{ runner.os }}-build-${{ hashFiles('**/yarn.lock') }}
+          path: ~/.npm
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-build-
+            ${{ runner.os }}-yarn-
         
       - name: 의존성 파일 설치
         run: yarn install
