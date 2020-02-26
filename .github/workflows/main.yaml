@@ -10,6 +10,15 @@ jobs:
     steps:
       - name: 레포지토리 체크아웃
         uses: actions/checkout@master
+
+      - name: node_modules 디렉토리캐싱
+        uses: actions/cache@v1
+        with: 
+          path: node_modules
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runners.OS }}-build- 
+            ${{ runnser.OS }}-
         
       - name: 의존성 파일 설치
         run: npm install
