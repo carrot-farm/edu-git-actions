@@ -24,3 +24,4 @@ jobs:
 
       - name: React 빌드
         run: yarn build
+        
