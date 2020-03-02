@@ -36,7 +36,7 @@ jobs:
           aws s3 cp \
             --recursive \
             --region ap-northeast-2 \
-            build.tar s3://github-action-example/build.tar
+            build s3://github-action-example
       
         
 
