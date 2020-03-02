@@ -25,7 +25,10 @@ jobs:
       - name: React 빌드
         run: yarn build
 
-      - name: Deploy   
+      - name: 빌드된 파일 압축파일 생성
+        run: tar cvf build.tar build
+
+      - name: S3 배포   
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -33,7 +36,7 @@ jobs:
           aws s3 cp \
             --recursive \
             --region ap-northeast-2 \
-            build s3://github-action-example
+            build.tar s3://github-action-example
       
         
 
