@@ -31,14 +31,15 @@ jobs:
       - name: 빌드된 파일 압축파일 생성
         run: tar cvf build.tar build
 
-      - name: S3에 압축된 빌드파일 배포
+      - name: 빌드파일 s3에 업로드
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
-          aws s3 cp \
+          aws deploy push \
             --region ap-northeast-2 \
-            build.tar s3://github-action-example
-      
-        
+            --application-name build-test \ 
+            --s3-location s3://carrot-farm-deploy-bucket/buildTest.zip \
+            --ignore-hidden-files
+            
 
