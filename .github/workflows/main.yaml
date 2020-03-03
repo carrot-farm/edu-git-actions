@@ -25,9 +25,11 @@ jobs:
       - name: React 빌드
         run: yarn build
 
+      - name: 빌드된 파일에 appspec.yml 복사
+        run: cp appspec.yml ./build
+
       - name: 빌드된 파일 압축파일 생성
         run: tar cvf build.tar build
-        
 
       - name: S3에 압축된 빌드파일 배포
         env:
