@@ -27,6 +27,7 @@ jobs:
 
       - name: 빌드된 파일 압축파일 생성
         run: tar cvf build.tar build
+        
 
       - name: S3에 압축된 빌드파일 배포
         env:
