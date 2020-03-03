@@ -38,8 +38,10 @@ jobs:
         run: |
           aws deploy push \
             --region ap-northeast-2 \
-            --application-name build-test \ 
+            --application-name carrot-farm-deploy \
+            --description "carrot farm test build" \
             --s3-location s3://carrot-farm-deploy-bucket/buildTest.zip \
+            --source ./build \
             --ignore-hidden-files
-            
+
 
