@@ -54,8 +54,7 @@ jobs:
             --application-name carrot-farm-deploy \
             --deployment-group-name carrot-farm-deploy-group \
             --deployment-config-name CodeDeployDefault.OneAtATime \
-            --s3-location bucket=carrot-farm-deploy-bucket,bundleType=zip,key=buildTes 
-t.zip
+            --s3-location bucket=carrot-farm-deploy-bucket,bundleType=zip,key=buildTest.zip
         
         
 
